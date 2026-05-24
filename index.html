@@ -1,276 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MONETIQ</title>
-  <meta name="description" content="AI-Powered Publisher Monetization Platform — Maximize your ad revenue and content monetization with intelligent optimization.">
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/hero.css">
-  <link rel="stylesheet" href="./css/section.css">
-  <link rel="stylesheet" href="./css/animation.css">
-  <link rel="stylesheet" href="./css/responsive.css">
+  <title>AdVerse — Digital Advertising Ecosystem</title>
+  <meta name="description" content="AdVerse provides premium ad exchange, affiliate network, and content monetization solutions.">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
   <!-- Header -->
   <header class="header">
-    <div class="container navbar">
-      <a href="#" class="logo">MONETIQ</a>
-      <nav class="nav-menu">
-        <a href="#about">About</a>
-        <a href="#content">Content Monetization</a>
-        <a href="#ad">Ad Monetization</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a href="#contact" class="btn-primary">Book a Demo</a>
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <span class="logo-text">AdVerse</span>
+        </a>
+        <nav class="nav">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#metrics">Results</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn-primary">Get Started</a>
+        <button class="menu-toggle" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">
+          <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="nav-mobile">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#metrics">Results</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="btn-primary">Get Started</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="container">
-      <div class="hero-content">
-        <span class="hero-badge">✦ AI-Powered Monetization</span>
-        <h1 class="hero-title">Turn Your Content Into Revenue</h1>
-        <p class="hero-subtitle">MONETIQ uses AI to help publishers, app developers, and content platforms maximize ad revenue and unlock new monetization channels.</p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn-primary">Book a Demo</a>
-          <a href="#about" class="btn-outline">Get Started</a>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge">
+            <svg class="badge-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            Trusted by 500+ Global Partners
+          </div>
+          <h1 class="hero-title">Powering the Future of <span>Digital Advertising</span></h1>
+          <p class="hero-desc">AdVerse connects publishers, advertisers, and content creators through our unified ecosystem. Maximize your revenue with advanced ad exchange, performance affiliate networks, and premium content solutions.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn-primary-lg">Start Monetizing</a>
+            <a href="#services" class="btn-outline-lg">Explore Services</a>
+          </div>
         </div>
-        <div class="hero-trust">
-          <span>Trusted by leading publishers worldwide</span>
-          <div class="trust-logos">
-            <img src="./css/logo.svg" alt="Partner Logo">
+        <div class="hero-cards">
+          <div class="float-card card-1">
+            <div class="card-value">$89K+</div>
+            <div class="card-label">Avg. Monthly Revenue</div>
+          </div>
+          <div class="float-card card-2">
+            <div class="card-value card-value-2">500M+</div>
+            <div class="card-label">Monthly Impressions</div>
+          </div>
+          <div class="float-card card-3">
+            <div class="card-value card-value-3">98.5%</div>
+            <div class="card-label">Fill Rate</div>
+          </div>
+          <div class="float-card card-gradient">
+            <div class="card-value card-value-white">47%</div>
+            <div class="card-label card-label-white">Revenue Uplift</div>
           </div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="ai-core">AI</div>
-        <div class="float-card revenue-card">
-          <h4>+$24.5K</h4>
-          <p>Revenue this month</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">Comprehensive Advertising Solutions</h2>
+        <p class="section-subtitle">Three powerful platforms, one unified ecosystem.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon icon-1">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </div>
+          <h3 class="service-title">Ad Exchange</h3>
+          <p class="service-desc">Real-time bidding platform connecting premium publishers with top-tier advertisers.</p>
+          <ul class="service-list">
+            <li><svg class="check-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Header Bidding Support</li>
+            <li><svg class="check-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Programmatic Direct</li>
+            <li><svg class="check-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Private Marketplace</li>
+          </ul>
         </div>
-        <div class="float-card growth-card">
-          <h4>+37%</h4>
-          <p>Growth rate</p>
+        <div class="service-card">
+          <div class="service-icon icon-2">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+          </div>
+          <h3 class="service-title">Affiliate Network</h3>
+          <p class="service-desc">Performance-based marketing platform. Connect with thousands of affiliates and only pay when you get results.</p>
+          <ul class="service-list">
+            <li><svg class="check-icon check-2" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>CPA & CPI Models</li>
+            <li><svg class="check-icon check-2" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Real-time Tracking</li>
+            <li><svg class="check-icon check-2" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Global Publisher Pool</li>
+          </ul>
         </div>
-        <div class="float-card traffic-card">
-          <h4>1.2M</h4>
-          <p>Monthly visitors</p>
+        <div class="service-card">
+          <div class="service-icon icon-3">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+          </div>
+          <h3 class="service-title">Content Provider</h3>
+          <p class="service-desc">Premium content monetization solutions. Native ads, sponsored content, and smart recommendation engines.</p>
+          <ul class="service-list">
+            <li><svg class="check-icon check-3" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Native Advertising</li>
+            <li><svg class="check-icon check-3" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Sponsored Content</li>
+            <li><svg class="check-icon check-3" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Recommendation Engine</li>
+          </ul>
         </div>
-        <div class="hero-glow glow-1"></div>
-        <div class="hero-glow glow-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section section-dark">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="section-label label-light">About AdVerse</span>
+          <h2 class="section-title title-white">Building the Next Generation of Digital Advertising</h2>
+          <p class="about-text">Founded in 2020, AdVerse has rapidly become a leading force in the digital advertising industry. Our platform combines cutting-edge technology with deep industry expertise.</p>
+          <div class="about-stats">
+            <div class="about-stat"><div class="about-stat-value">2020</div><div class="about-stat-label">Founded</div></div>
+            <div class="about-stat"><div class="about-stat-value">180+</div><div class="about-stat-label">Countries Served</div></div>
+          </div>
+        </div>
+        <div class="about-cards">
+          <div class="stat-card"><div class="stat-card-value">$2B+</div><div class="stat-card-label">Ad Spend Managed</div></div>
+          <div class="stat-card"><div class="stat-card-value">500+</div><div class="stat-card-label">Premium Partners</div></div>
+          <div class="stat-card"><div class="stat-card-value">99.9%</div><div class="stat-card-label">Uptime SLA</div></div>
+          <div class="stat-card"><div class="stat-card-value"><50ms</div><div class="stat-card-label">Avg. Response</div></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Metrics -->
-  <section class="metrics-section" id="about">
+  <section id="metrics" class="section">
     <div class="container">
-      <h2 class="section-title">Trusted by Publishers Worldwide</h2>
-      <p class="section-subtitle">Our AI-powered platform delivers measurable results for content creators and publishers across the globe.</p>
+      <div class="section-header">
+        <span class="section-label">Results</span>
+        <h2 class="section-title">Trusted by Industry Leaders</h2>
+      </div>
       <div class="metrics-grid">
         <div class="metric-card">
-          <div class="metric-number" style="color: var(--primary);">500+</div>
-          <div class="metric-label">Active Publishers</div>
+          <div class="metric-value">$12M+</div>
+          <div class="metric-label">Monthly Revenue</div>
         </div>
         <div class="metric-card">
-          <div class="metric-number" style="color: var(--primary);">$12M+</div>
-          <div class="metric-label">Revenue Generated</div>
+          <div class="metric-value">2B+</div>
+          <div class="metric-label">Monthly Impressions</div>
         </div>
         <div class="metric-card">
-          <div class="metric-number" style="color: var(--primary);">37%</div>
-          <div class="metric-label">Avg. Revenue Uplift</div>
+          <div class="metric-value">47%</div>
+          <div class="metric-label">Revenue Lift</div>
         </div>
         <div class="metric-card">
-          <div class="metric-number" style="color: var(--primary);">99.9%</div>
-          <div class="metric-label">Platform Uptime</div>
+          <div class="metric-value">50+</div>
+          <div class="metric-label">Demand Partners</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about-section">
-    <div class="container">
-      <div class="about-wrapper">
-        <div class="about-image">
-          <img src="./css/hero-ai.png" alt="MONETIQ Dashboard">
-        </div>
-        <div class="about-content">
-          <h2>AI That Works for Your Revenue</h2>
-          <p>MONETIQ combines machine learning with real-time bidding data to optimize ad placements, content monetization strategies, and audience engagement — all on autopilot.</p>
-          <div class="about-stats">
-            <div class="stat-box">
-              <h3>3x Faster</h3>
-              <p>Revenue optimization</p>
-            </div>
-            <div class="stat-box">
-              <h3>50+ Countries</h3>
-              <p>Global coverage</p>
-            </div>
-            <div class="stat-box">
-              <h3>Real-time</h3>
-              <p>AI performance tuning</p>
-            </div>
-            <div class="stat-box">
-              <h3>Zero Code</h3>
-              <p>Integration required</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Content Monetization -->
-  <section class="features-section content-section" id="content">
-    <div class="container">
-      <h2 class="section-title">Content Monetization</h2>
-      <p class="section-subtitle">Turn every piece of content into a revenue stream with AI-powered optimization.</p>
-      <div class="features-grid">
-        <div class="feature-card content-card">
-          <div class="feature-icon">📝</div>
-          <h3>Smart Paywalls</h3>
-          <p>AI determines the optimal paywall timing and placement for each user segment, maximizing both subscriptions and ad revenue.</p>
-          <a href="#contact" class="feature-link">Learn more →</a>
-        </div>
-        <div class="feature-card content-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Personalized Content Offers</h3>
-          <p>Deliver tailored content packages and premium experiences based on user behavior and preference data.</p>
-          <a href="#contact" class="feature-link">Learn more →</a>
-        </div>
-        <div class="feature-card content-card">
-          <div class="feature-icon">💡</div>
-          <h3>Subscription Intelligence</h3>
-          <p>Predict churn before it happens and automatically adjust pricing and offers to retain subscribers.</p>
-          <a href="#contact" class="feature-link">Learn more →</a>
-        </div>
-        <div class="feature-card content-card">
-          <div class="feature-icon">📊</div>
-          <h3>Revenue Analytics</h3>
-          <p>Get deep insights into content performance, revenue attribution, and audience monetization potential.</p>
-          <a href="#contact" class="feature-link">Learn more →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ad Monetization -->
-  <section class="features-section ad-section" id="ad">
-    <div class="container">
-      <h2 class="section-title">Ad Monetization</h2>
-      <p class="section-subtitle">Maximize ad revenue with AI-driven header bidding, yield optimization, and intelligent ad placement.</p>
-      <div class="ad-grid">
-        <div class="feature-card ad-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Header Bidding</h3>
-          <p>Our AI-powered header bidding solution ensures you get the highest CPM for every impression across all demand sources.</p>
-          <ul>
-            <li>✓ Prebid.js integration</li>
-            <li>✓ 50+ demand partners</li>
-            <li>✓ Real-time auction optimization</li>
-          </ul>
-        </div>
-        <div class="feature-card ad-card">
-          <div class="feature-icon">🧠</div>
-          <h3>Yield Optimization</h3>
-          <p>Machine learning algorithms continuously optimize ad layouts, formats, and placements for maximum revenue.</p>
-          <ul>
-            <li>✓ Dynamic ad refresh</li>
-            <li>✓ Viewability optimization</li>
-            <li>✓ A/B testing automation</li>
-          </ul>
-        </div>
-        <div class="feature-card ad-card">
-          <div class="feature-icon">📱</div>
-          <h3>Multi-Format Ads</h3>
-          <p>Support for display, video, native, and interactive ad formats across desktop, mobile web, and in-app environments.</p>
-          <ul>
-            <li>✓ Responsive ad units</li>
-            <li>✓ Video ad monetization</li>
-            <li>✓ Native ad integration</li>
-          </ul>
-        </div>
-        <div class="feature-card ad-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Brand Safety & Compliance</h3>
-          <p>Advanced content classification and brand safety controls protect your reputation while maintaining revenue.</p>
-          <ul>
-            <li>✓ GDPR & CCPA compliant</li>
-            <li>✓ Ad quality monitoring</li>
-            <li>✓ Malware protection</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Studies -->
-  <section class="case-section">
-    <div class="container">
-      <h2 class="section-title">Success Stories</h2>
-      <p class="section-subtitle">See how leading publishers are growing revenue with MONETIQ.</p>
-      <div class="case-grid">
-        <div class="case-card">
-          <div class="case-logo" style="font-size: 24px; font-weight: 800; color: var(--primary);">TechDaily</div>
-          <p class="case-quote">"MONETIQ increased our ad revenue by 42% in just 3 months. The AI optimization is incredible."</p>
-          <div class="case-author">— Sarah Chen, VP of Revenue</div>
-        </div>
-        <div class="case-card">
-          <div class="case-logo" style="font-size: 24px; font-weight: 800; color: var(--secondary);">MediaFlow</div>
-          <p class="case-quote">"Our subscription revenue doubled after implementing MONETIQ's smart paywall strategy."</p>
-          <div class="case-author">— James Miller, CEO</div>
-        </div>
-        <div class="case-card">
-          <div class="case-logo" style="font-size: 24px; font-weight: 800; color: var(--accent);">NewsPulse</div>
-          <p class="case-quote">"The header bidding optimization alone paid for the platform 10x over. Best decision we made."</p>
-          <div class="case-author">— Maria Lopez, Head of Monetization</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-banner">
-        <h2>Ready to Maximize Your Revenue?</h2>
-        <p>Join 500+ publishers who are already using MONETIQ to grow their business with AI-powered monetization.</p>
-        <a href="#contact" class="btn-primary" style="background: white; color: var(--primary);">Book a Demo</a>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="contact-section" id="contact">
+  <section id="contact" class="section section-bg">
     <div class="container">
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <h2>Get in Touch</h2>
-          <p>Want to see how MONETIQ can boost your revenue? Schedule a demo or reach out to our team.</p>
-          <div class="contact-list">
-            <div>📧 hello@monetiq.ai</div>
-            <div>📍 San Francisco, CA</div>
-            <div>🌐 Global Coverage</div>
-          </div>
+      <div class="contact-wrap">
+        <div class="section-header">
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title">Ready to Scale Your Business?</h2>
+          <p class="section-subtitle">Let's discuss how AdVerse can power your advertising growth.</p>
         </div>
         <div class="contact-form">
-          <div class="form-group">
-            <input type="text" placeholder="Your Name">
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Your Email">
-          </div>
-          <div class="form-group">
-            <textarea rows="4" placeholder="Tell us about your business..."></textarea>
-          </div>
-          <button class="btn-primary" style="width: 100%;">Send Message</button>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="John">
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Doe">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="john@company.com">
+            </div>
+            <div class="form-group">
+              <label>Company</label>
+              <input type="text" placeholder="Your Company">
+            </div>
+            <div class="form-group">
+              <label>I'm interested in</label>
+              <select>
+                <option>Ad Exchange</option>
+                <option>Affiliate Network</option>
+                <option>Content Provider</option>
+                <option>All Solutions</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="4" placeholder="Tell us about your business..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
         </div>
       </div>
     </div>
@@ -279,19 +230,45 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-wrapper">
-        <a href="#" class="logo">MONETIQ</a>
-        <div class="footer-links">
-          <a href="#about">About</a>
-          <a href="#content">Content</a>
-          <a href="#ad">Ads</a>
-          <a href="#contact">Contact</a>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>AdVerse</span>
+          </div>
+          <p>Powering the future of digital advertising. Connecting publishers, advertisers, and content creators through our unified ecosystem.</p>
+          <div class="footer-social">
+            <a href="#">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
         </div>
-        <p style="color: var(--gray); font-size: 14px;">© 2026 MONETIQ. All rights reserved.</p>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Ad Exchange</a></li>
+            <li><a href="#services">Affiliate Network</a></li>
+            <li><a href="#services">Content Provider</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#metrics">Results</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 AdVerse. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
 </body>
-
 </html>
