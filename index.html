@@ -1,1155 +1,736 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HiCloud — Digital Advertising Ecosystem</title>
-  <meta name="description" content="HiCloud provides premium ad exchange, affiliate network, and content monetization solutions.">
-  
-  <style>
-    :root {
-      --primary: #6366F1;
-      --primary-light: rgba(99, 102, 241, 0.1);
-      --secondary: #8B5CF6;
-      --accent: #A855F7;
-      --text-primary: #1e293b;
-      --text-secondary: #64748b;
-      --bg-light: #f8fafc;
-      --border: #e2e8f0;
-    }
-    
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html { scroll-behavior: smooth; }
-    
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-      color: var(--text-primary); 
-      line-height: 1.6; 
-      overflow-x: hidden; 
-    }
-    
-    .container { 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      padding: 0 24px; 
-    }
-    
-    /* ===== Header ===== */
-    .header { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      right: 0; 
-      background: rgba(255,255,255,0.95); 
-      backdrop-filter: blur(10px); 
-      z-index: 1000; 
-      border-bottom: 1px solid var(--border); 
-    }
-    
-    .navbar { 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      padding: 12px 0; 
-    }
-    
-    .logo { 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-      font-size: 22px; 
-      font-weight: 700; 
-      color: var(--primary); 
-      text-decoration: none; 
-    }
-    
-    .logo img { 
-      height: 36px; 
-      width: auto; 
-    }
-    
-    .nav-menu { 
-      display: flex; 
-      align-items: center; 
-      gap: 32px; 
-    }
-    
-    .nav-menu a { 
-      color: var(--text-secondary); 
-      text-decoration: none; 
-      font-size: 15px; 
-      font-weight: 500; 
-      transition: color 0.2s; 
-    }
-    
-    .nav-menu a:hover { 
-      color: var(--primary); 
-    }
-    
-    /* ===== Buttons ===== */
-    .btn-primary { 
-      padding: 12px 28px; 
-      background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-      color: white; 
-      border: none; 
-      border-radius: 10px; 
-      font-size: 15px; 
-      font-weight: 600; 
-      cursor: pointer; 
-      text-decoration: none; 
-      transition: transform 0.2s, box-shadow 0.2s; 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 8px; 
-    }
-    
-    .btn-primary:hover { 
-      transform: translateY(-2px); 
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3); 
-    }
-    
-    .btn-outline { 
-      padding: 12px 28px; 
-      background: transparent; 
-      color: var(--text-primary); 
-      border: 2px solid var(--border); 
-      border-radius: 10px; 
-      font-size: 15px; 
-      font-weight: 600; 
-      cursor: pointer; 
-      text-decoration: none; 
-      transition: all 0.2s; 
-    }
-    
-    .btn-outline:hover { 
-      border-color: var(--primary); 
-      color: var(--primary); 
-    }
-    
-    /* ===== Hero Section ===== */
-    .hero { 
-      padding: 140px 0 100px; 
-      background: linear-gradient(135deg, #f8fafc 0%, white 50%, #f0efff 100%); 
-      position: relative; 
-      overflow: hidden; 
-    }
-    
-    .hero-bg-pattern { 
-      position: absolute; 
-      top: 0; 
-      left: 0; 
-      right: 0; 
-      bottom: 0; 
-      opacity: 0.5; 
-      background-image: 
-        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%), 
-        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%); 
-    }
-    
-    .hero .container { 
-      display: grid; 
-      grid-template-columns: 1fr 1fr; 
-      gap: 64px; 
-      align-items: center; 
-      position: relative; 
-    }
-    
-    .hero-badge-wrapper { 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 8px; 
-      margin-bottom: 24px; 
-    }
-    
-    .hero-badge { 
-      padding: 8px 16px; 
-      background: var(--primary-light); 
-      color: var(--primary); 
-      border-radius: 20px; 
-      font-size: 13px; 
-      font-weight: 600; 
-    }
-    
-    .hero-title { 
-      font-size: 48px; 
-      font-weight: 800; 
-      line-height: 1.2; 
-      margin-bottom: 20px; 
-    }
-    
-    .gradient-text { 
-      background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
-      background-clip: text; 
-    }
-    
-    .hero-subtitle { 
-      font-size: 18px; 
-      color: var(--text-secondary); 
-      line-height: 1.7; 
-      margin-bottom: 32px; 
-    }
-    
-    .hero-buttons { 
-      display: flex; 
-      gap: 16px; 
-      margin-bottom: 32px; 
-    }
-    
-    .hero-stats-inline { 
-      display: flex; 
-      align-items: center; 
-      gap: 24px; 
-    }
-    
-    .stat-inline { 
-      text-align: center; 
-    }
-    
-    .stat-value { 
-      display: block; 
-      font-size: 24px; 
-      font-weight: 700; 
-      color: var(--primary); 
-    }
-    
-    .stat-label { 
-      font-size: 13px; 
-      color: var(--text-secondary); 
-    }
-    
-    .stat-divider { 
-      width: 1px; 
-      height: 40px; 
-      background: var(--border); 
-    }
-    
-    /* Hero Visual */
-    .hero-visual { 
-      position: relative; 
-    }
-    
-    .dashboard-preview { 
-      background: white; 
-      border-radius: 16px; 
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); 
-      overflow: hidden; 
-      border: 1px solid var(--border); 
-    }
-    
-    .dashboard-header { 
-      background: #f1f5f9; 
-      padding: 12px 16px; 
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
-      border-bottom: 1px solid var(--border); 
-    }
-    
-    .dashboard-dots { 
-      display: flex; 
-      gap: 6px; 
-    }
-    
-    .dot { 
-      width: 12px; 
-      height: 12px; 
-      border-radius: 50%; 
-    }
-    
-    .dot.red { background: #ef4444; }
-    .dot.yellow { background: #f59e0b; }
-    .dot.green { background: #10b981; }
-    
-    .dashboard-title { 
-      font-size: 13px; 
-      color: var(--text-secondary); 
-      font-weight: 500; 
-    }
-    
-    .dashboard-body { 
-      padding: 24px; 
-    }
-    
-    .main-chart { 
-      height: 100px; 
-      margin-bottom: 20px; 
-    }
-    
-    .chart-svg { 
-      width: 100%; 
-      height: 100%; 
-    }
-    
-    .dashboard-stats { 
-      display: grid; 
-      grid-template-columns: repeat(3, 1fr); 
-      gap: 16px; 
-    }
-    
-    .d-stat { 
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
-      padding: 12px; 
-      background: var(--bg-light); 
-      border-radius: 10px; 
-    }
-    
-    .d-stat-icon { 
-      width: 36px; 
-      height: 36px; 
-      border-radius: 8px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      color: white; 
-    }
-    
-    .revenue-icon { background: linear-gradient(135deg, #6366F1, #8B5CF6); }
-    .impression-icon { background: linear-gradient(135deg, #8B5CF6, #A855F7); }
-    .fillrate-icon { background: linear-gradient(135deg, #A855F7, #6366F1); }
-    
-    .d-stat-info { flex: 1; }
-    .d-value { display: block; font-size: 14px; font-weight: 700; color: var(--text-primary); }
-    .d-label { font-size: 11px; color: var(--text-secondary); }
-    .d-trend { font-size: 12px; font-weight: 600; color: #10b981; }
-    
-    /* Float Cards */
-    .float-card { 
-      position: absolute; 
-      background: white; 
-      padding: 12px 16px; 
-      border-radius: 12px; 
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-      z-index: 10; 
-    }
-    
-    .float-card svg { 
-      width: 24px; 
-      height: 24px; 
-      color: var(--primary); 
-    }
-    
-    .float-card h5 { 
-      font-size: 13px; 
-      font-weight: 600; 
-    }
-    
-    .float-card p { 
-      font-size: 11px; 
-      color: var(--text-secondary); 
-    }
-    
-    .float-1 { 
-      top: -20px; 
-      right: -20px; 
-      animation: float 4s ease-in-out infinite; 
-    }
-    
-    .float-2 { 
-      top: 120px; 
-      left: -30px; 
-      animation: float 4s ease-in-out infinite 1s; 
-    }
-    
-    .float-3 { 
-      bottom: -10px; 
-      right: -10px; 
-      animation: float 4s ease-in-out infinite 2s; 
-    }
-    
-    @keyframes float { 
-      0%, 100% { transform: translateY(0); } 
-      50% { transform: translateY(-10px); } 
-    }
-    
-    /* ===== Services Section ===== */
-    .services-icons { 
-      padding: 80px 0; 
-      background: white; 
-    }
-    
-    .section-header { 
-      text-align: center; 
-      max-width: 600px; 
-      margin: 0 auto 48px; 
-    }
-    
-    .section-tag { 
-      display: inline-block; 
-      padding: 6px 16px; 
-      background: var(--primary-light); 
-      color: var(--primary); 
-      border-radius: 20px; 
-      font-size: 12px; 
-      font-weight: 600; 
-      letter-spacing: 0.5px; 
-      margin-bottom: 16px; 
-    }
-    
-    .section-title { 
-      font-size: 36px; 
-      font-weight: 700; 
-      margin-bottom: 16px; 
-    }
-    
-    .section-subtitle { 
-      font-size: 18px; 
-      color: var(--text-secondary); 
-    }
-    
-    .services-cards { 
-      display: grid; 
-      grid-template-columns: repeat(3, 1fr); 
-      gap: 32px; 
-    }
-    
-    .service-card { 
-      background: white; 
-      border: 1px solid var(--border); 
-      border-radius: 20px; 
-      padding: 32px; 
-      text-align: center; 
-      transition: all 0.3s; 
-    }
-    
-    .service-card:hover { 
-      border-color: rgba(99, 102, 241, 0.3); 
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1); 
-      transform: translateY(-5px); 
-    }
-    
-    .service-icon-wrap { 
-      position: relative; 
-      width: 80px; 
-      height: 80px; 
-      margin: 0 auto 24px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-    }
-    
-    .icon-bg { 
-      position: absolute; 
-      width: 100%; 
-      height: 100%; 
-      border-radius: 20px; 
-      opacity: 0.2; 
-    }
-    
-    .bg-1 { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
-    .bg-2 { background: linear-gradient(135deg, var(--secondary), var(--accent)); }
-    .bg-3 { background: linear-gradient(135deg, var(--accent), var(--primary)); }
-    
-    .service-svg { 
-      position: relative; 
-      width: 36px; 
-      height: 36px; 
-      color: var(--primary); 
-    }
-    
-    .service-card h3 { 
-      font-size: 22px; 
-      font-weight: 700; 
-      margin-bottom: 12px; 
-    }
-    
-    .service-card p { 
-      color: var(--text-secondary); 
-      margin-bottom: 20px; 
-      line-height: 1.6; 
-    }
-    
-    .service-features { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 8px; 
-      justify-content: center; 
-      margin-bottom: 20px; 
-    }
-    
-    .feature-tag { 
-      padding: 4px 12px; 
-      background: var(--bg-light); 
-      border-radius: 20px; 
-      font-size: 12px; 
-      font-weight: 500; 
-      color: var(--text-secondary); 
-    }
-    
-    /* ===== Stats Banner ===== */
-    .stats-banner { 
-      padding: 60px 0; 
-      background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-    }
-    
-    .stats-grid { 
-      display: grid; 
-      grid-template-columns: repeat(4, 1fr); 
-      gap: 32px; 
-    }
-    
-    .stat-big { 
-      text-align: center; 
-      color: white; 
-    }
-    
-    .stat-big-icon { 
-      width: 60px; 
-      height: 60px; 
-      background: rgba(255,255,255,0.2); 
-      border-radius: 16px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin: 0 auto 16px; 
-    }
-    
-    .stat-big-icon svg { 
-      width: 28px; 
-      height: 28px; 
-      color: white; 
-    }
-    
-    .stat-big-number { 
-      font-size: 40px; 
-      font-weight: 800; 
-      margin-bottom: 8px; 
-    }
-    
-    .stat-big-label { 
-      font-size: 14px; 
-      opacity: 0.9; 
-    }
-    
-    /* ===== Contact ===== */
-    .contact-section { 
-      padding: 80px 0; 
-      background: var(--bg-light); 
-    }
-    
-    .contact-wrapper { 
-      max-width: 600px; 
-      margin: 0 auto; 
-    }
-    
-    .contact-header { 
-      text-align: center; 
-      margin-bottom: 48px; 
-    }
-    
-    .contact-tag { 
-      display: inline-block; 
-      padding: 6px 16px; 
-      background: var(--primary-light); 
-      color: var(--primary); 
-      border-radius: 20px; 
-      font-size: 12px; 
-      font-weight: 600; 
-      letter-spacing: 0.5px; 
-      margin-bottom: 16px; 
-    }
-    
-    .contact-title { 
-      font-size: 36px; 
-      font-weight: 700; 
-      margin-bottom: 16px; 
-    }
-    
-    .contact-subtitle { 
-      font-size: 18px; 
-      color: var(--text-secondary); 
-    }
-    
-    .contact-form-wrapper { 
-      background: white; 
-      border-radius: 20px; 
-      padding: 40px; 
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); 
-    }
-    
-    .form-row { 
-      display: grid; 
-      grid-template-columns: 1fr 1fr; 
-      gap: 20px; 
-    }
-    
-    .form-group { 
-      margin-bottom: 20px; 
-    }
-    
-    .form-group label { 
-      display: flex; 
-      align-items: center; 
-      gap: 6px; 
-      font-size: 14px; 
-      font-weight: 600; 
-      color: var(--text-primary); 
-      margin-bottom: 8px; 
-    }
-    
-    .form-group label svg { 
-      width: 16px; 
-      height: 16px; 
-      color: var(--primary); 
-    }
-    
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea { 
-      width: 100%; 
-      padding: 14px 16px; 
-      border: 2px solid var(--border); 
-      border-radius: 10px; 
-      font-size: 15px; 
-      font-family: inherit; 
-      transition: border-color 0.2s; 
-    }
-    
-    .form-group input:focus, 
-    .form-group select:focus, 
-    .form-group textarea:focus { 
-      outline: none; 
-      border-color: var(--primary); 
-    }
-    
-    .form-group textarea { 
-      resize: vertical; 
-      min-height: 100px; 
-    }
-    
-    .submit-btn { 
-      width: 100%; 
-      padding: 16px; 
-      background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-      color: white; 
-      border: none; 
-      border-radius: 10px; 
-      font-size: 16px; 
-      font-weight: 600; 
-      cursor: pointer; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      gap: 8px; 
-      transition: all 0.2s; 
-    }
-    
-    .submit-btn:hover { 
-      transform: translateY(-2px); 
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3); 
-    }
-    
-    /* ===== Footer ===== */
-    .footer { 
-      background: #1e1b4b; 
-      color: white; 
-      padding: 64px 0 24px; 
-    }
-    
-    .footer-container { 
-      display: grid; 
-      grid-template-columns: 2fr 1fr; 
-      gap: 64px; 
-      margin-bottom: 48px; 
-    }
-    
-    .footer-logo { 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-      font-size: 22px; 
-      font-weight: 700; 
-      color: white; 
-      margin-bottom: 16px; 
-    }
-    
-    .footer-logo img { 
-      height: 36px; 
-    }
-    
-    .footer-desc { 
-      color: rgba(255,255,255,0.6); 
-      font-size: 15px; 
-      line-height: 1.7; 
-      max-width: 400px; 
-      margin-bottom: 24px; 
-    }
-    
-    .footer-social { 
-      display: flex; 
-      gap: 12px; 
-    }
-    
-    .social-link { 
-      width: 40px; 
-      height: 40px; 
-      background: rgba(255,255,255,0.1); 
-      border-radius: 50%; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      color: white; 
-      text-decoration: none; 
-      font-size: 18px; 
-      font-weight: 700; 
-      transition: background 0.2s; 
-    }
-    
-    .social-link:hover { 
-      background: var(--primary); 
-    }
-    
-    .footer-links { 
-      display: flex; 
-      gap: 64px; 
-    }
-    
-    .footer-column { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 12px; 
-    }
-    
-    .footer-column h4 { 
-      font-size: 16px; 
-      font-weight: 600; 
-      margin-bottom: 8px; 
-    }
-    
-    .footer-column a { 
-      color: rgba(255,255,255,0.6); 
-      text-decoration: none; 
-      font-size: 14px; 
-      transition: color 0.2s; 
-    }
-    
-    .footer-column a:hover { 
-      color: var(--accent); 
-    }
-    
-    .footer-bottom { 
-      border-top: 1px solid rgba(255,255,255,0.1); 
-      padding-top: 24px; 
-    }
-    
-    .footer-bottom .container { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-    }
-    
-    .footer-bottom p { 
-      color: rgba(255,255,255,0.5); 
-      font-size: 14px; 
-    }
-    
-    .footer-bottom-links { 
-      display: flex; 
-      gap: 24px; 
-    }
-    
-    .footer-bottom-links a { 
-      color: rgba(255,255,255,0.5); 
-      text-decoration: none; 
-      font-size: 14px; 
-      transition: color 0.2s; 
-    }
-    
-    .footer-bottom-links a:hover { 
-      color: var(--accent); 
-    }
-    
-    /* ===== Responsive ===== */
-    @media (max-width: 1024px) { 
-      .hero .container { grid-template-columns: 1fr; }
-      .services-cards { grid-template-columns: repeat(2, 1fr); }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .nav-menu { display: none; }
-    }
-    
-    @media (max-width: 768px) { 
-      .hero-title { font-size: 32px; }
-      .hero-buttons { flex-direction: column; }
-      .hero-stats-inline { flex-direction: column; gap: 16px; }
-      .stat-divider { display: none; }
-      .services-cards { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-container { grid-template-columns: 1fr; }
-      .footer-bottom .container { flex-direction: column; gap: 16px; text-align: center; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiCloud - Advertising Technology & Data Platform</title>
+    <style>
+        :root {
+            --primary: #6366F1;
+            --secondary: #8B5CF6;
+            --accent: #A855F7;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 10px 25px rgba(99, 102, 241, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-primary);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stat-item span {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .hero-preview {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            height: 350px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f57; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #28ca42; }
+
+        .chart {
+            height: 200px;
+            background: linear-gradient(135deg, #e0e7ff, #f3e8ff);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-bar {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 4px 4px 0 0;
+        }
+
+        .floating-tag {
+            position: absolute;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 500;
+            animation: float 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .tag-1 { top: -20px; right: 20px; animation-delay: 0s; }
+        .tag-2 { top: 50%; right: -30px; animation-delay: 1s; }
+        .tag-3 { bottom: 20px; left: 20px; animation-delay: 2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .service-desc {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .service-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 6px 12px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea.form-input {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 16px;
+        }
+
+        .footer-desc {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <div class="container navbar">
-      <a href="#" class="logo">
-        <img src="logo.png" alt="HiCloud">
-      </a>
-      <nav class="nav-menu">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Banner -->
-  <section class="hero" id="about">
-    <div class="hero-bg-pattern"></div>
-    
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge-wrapper">
-          <span class="hero-badge">🚀 Trusted by 500+ Global Partners</span>
-        </div>
-        <h1 class="hero-title">
-          Powering the Future of
-          <span class="gradient-text">Digital Advertising</span>
-        </h1>
-        <p class="hero-subtitle">HiCloud connects publishers, advertisers, and content creators through our unified ecosystem. Maximize your revenue with advanced ad exchange, performance affiliate networks, and premium content solutions.</p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn-primary">Get Started</a>
-          <a href="#services" class="btn-outline">Learn More</a>
-        </div>
-        <div class="hero-stats-inline">
-          <div class="stat-inline">
-            <span class="stat-value">$12M+</span>
-            <span class="stat-label">Monthly Revenue</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-inline">
-            <span class="stat-value">2B+</span>
-            <span class="stat-label">Impressions</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-inline">
-            <span class="stat-value">99.9%</span>
-            <span class="stat-label">Uptime</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="hero-visual">
-        <div class="dashboard-preview">
-          <div class="dashboard-header">
-            <div class="dashboard-dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <span class="dashboard-title">HiCloud Dashboard</span>
-          </div>
-          <div class="dashboard-body">
-            <div class="main-chart">
-              <svg viewBox="0 0 280 100" class="chart-svg">
-                <defs>
-                  <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#6366F1;stop-opacity:0.4" />
-                    <stop offset="100%" style="stop-color:#6366F1;stop-opacity:0" />
-                  </linearGradient>
-                </defs>
-                <path d="M0,80 Q35,75 70,65 T140,50 T210,35 T280,25 L280,100 L0,100 Z" fill="url(#chartGrad)" />
-                <path d="M0,80 Q35,75 70,65 T140,50 T210,35 T280,25" stroke="#6366F1" stroke-width="3" fill="none" stroke-linecap="round" />
-                <circle cx="70" cy="65" r="4" fill="#6366F1"/>
-                <circle cx="140" cy="50" r="4" fill="#6366F1"/>
-                <circle cx="210" cy="35" r="4" fill="#6366F1"/>
-                <circle cx="280" cy="25" r="4" fill="#6366F1"/>
-              </svg>
-            </div>
-            <div class="dashboard-stats">
-              <div class="d-stat">
-                <div class="d-stat-icon revenue-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-                  </svg>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <img src="logo.png" alt="HiCloud Logo" class="logo">
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
                 </div>
-                <div class="d-stat-info">
-                  <span class="d-value">$89,432</span>
-                  <span class="d-label">Revenue Today</span>
-                </div>
-                <span class="d-trend">+12.5%</span>
-              </div>
-              <div class="d-stat">
-                <div class="d-stat-icon impression-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                  </svg>
-                </div>
-                <div class="d-stat-info">
-                  <span class="d-value">512M</span>
-                  <span class="d-label">Impressions</span>
-                </div>
-                <span class="d-trend">+8.3%</span>
-              </div>
-              <div class="d-stat">
-                <div class="d-stat-icon fillrate-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                  </svg>
-                </div>
-                <div class="d-stat-info">
-                  <span class="d-value">98.5%</span>
-                  <span class="d-label">Fill Rate</span>
-                </div>
-                <span class="d-trend">+2.1%</span>
-              </div>
-            </div>
-          </div>
+            </nav>
         </div>
-        
-        <div class="float-card float-1">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-          <div>
-            <h5>Fast</h5>
-            <p><50ms latency</p>
-          </div>
-        </div>
-        <div class="float-card float-2">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <div>
-            <h5>Verified</h5>
-            <p>Anti-fraud system</p>
-          </div>
-        </div>
-        <div class="float-card float-3">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-          </svg>
-          <div>
-            <h5>Global</h5>
-            <p>180+ countries</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Services Icons -->
-  <section class="services-icons" id="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">OUR SOLUTIONS</span>
-        <h2 class="section-title">Three Powerful Platforms</h2>
-        <p class="section-subtitle">One unified ecosystem for all your digital advertising needs</p>
-      </div>
-      
-      <div class="services-cards">
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <div class="icon-bg bg-1"></div>
-            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
-            </svg>
-          </div>
-          <h3>Ad Exchange</h3>
-          <p>Real-time bidding platform connecting premium publishers with top-tier advertisers worldwide.</p>
-          <div class="service-features">
-            <span class="feature-tag">Header Bidding</span>
-            <span class="feature-tag">RTB</span>
-            <span class="feature-tag">Private MP</span>
-          </div>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <div class="icon-bg bg-2"></div>
-            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-          <h3>Affiliate Network</h3>
-          <p>Performance-based marketing network. Connect with thousands of affiliates and only pay for results.</p>
-          <div class="service-features">
-            <span class="feature-tag">CPA</span>
-            <span class="feature-tag">CPI</span>
-            <span class="feature-tag">CPS</span>
-          </div>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon-wrap">
-            <div class="icon-bg bg-3"></div>
-            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
-            </svg>
-          </div>
-          <h3>Content Provider</h3>
-          <p>Native advertising and sponsored content solutions that blend seamlessly with user experience.</p>
-          <div class="service-features">
-            <span class="feature-tag">Native</span>
-            <span class="feature-tag">Sponsored</span>
-            <span class="feature-tag">AI Recommend</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Banner -->
-  <section class="stats-banner">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-big">
-          <div class="stat-big-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-            </svg>
-          </div>
-          <div class="stat-big-number">$2B+</div>
-          <div class="stat-big-label">Ad Spend Managed</div>
-        </div>
-        <div class="stat-big">
-          <div class="stat-big-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-          <div class="stat-big-number">10,000+</div>
-          <div class="stat-big-label">Publisher Partners</div>
-        </div>
-        <div class="stat-big">
-          <div class="stat-big-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-            </svg>
-          </div>
-          <div class="stat-big-number">180+</div>
-          <div class="stat-big-label">Countries Reached</div>
-        </div>
-        <div class="stat-big">
-          <div class="stat-big-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <div class="stat-big-number">47%</div>
-          <div class="stat-big-label">Avg Revenue Lift</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-wrapper">
-        <div class="contact-header">
-          <span class="contact-tag">GET IN TOUCH</span>
-          <h2 class="contact-title">Ready to Scale Your Business?</h2>
-          <p class="contact-subtitle">Let's discuss how HiCloud can power your advertising growth. Our team will get back to you within 24 hours.</p>
-        </div>
-        
-        <div class="contact-form-wrapper">
-          <form class="contact-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
-                  </svg>
-                  First Name
-                </label>
-                <input type="text" placeholder="John">
-              </div>
-              <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" placeholder="Doe">
-              </div>
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="badge">🚀 Trusted by 500+ Global Partners</div>
+                    <h1 class="hero-title">
+                        Powering the Future of <span class="gradient-text">Advertising Technology</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        HiCloud delivers cutting-edge SaaS solutions for marketing, data analytics, and advertising operations.
+                        We empower businesses to scale with intelligent data-driven platforms.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                        <a href="#services" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-item">$12M+ <span>Monthly Revenue</span></div>
+                        <div class="stat-item">2B+ <span>Impressions</span></div>
+                        <div class="stat-item">99.9% <span>Uptime</span></div>
+                    </div>
+                </div>
+                <div class="hero-preview">
+                    <div class="dashboard-card">
+                        <div class="dashboard-header">
+                            <div class="dashboard-dots">
+                                <div class="dot dot-red"></div>
+                                <div class="dot dot-yellow"></div>
+                                <div class="dot dot-green"></div>
+                            </div>
+                            <div>Analytics Dashboard</div>
+                        </div>
+                        <div class="chart">
+                            <div class="chart-bar" style="width: 15%; height: 40%; left: 10%"></div>
+                            <div class="chart-bar" style="width: 15%; height: 60%; left: 30%"></div>
+                            <div class="chart-bar" style="width: 15%; height: 85%; left: 50%"></div>
+                            <div class="chart-bar" style="width: 15%; height: 70%; left: 70%"></div>
+                            <div class="chart-bar" style="width: 15%; height: 90%; left: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="floating-tag tag-1">Live Analytics</div>
+                    <div class="floating-tag tag-2">Real-time Data</div>
+                    <div class="floating-tag tag-3">99.9% Uptime</div>
+                </div>
             </div>
-            <div class="form-group">
-              <label>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                Email
-              </label>
-              <input type="email" placeholder="john@company.com">
-            </div>
-            <div class="form-group">
-              <label>Company</label>
-              <input type="text" placeholder="Your Company">
-            </div>
-            <div class="form-group">
-              <label>Message</label>
-              <textarea rows="4" placeholder="Tell us about your business..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="22" y1="2" x2="11" y2="13"/>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-              </svg>
-              Send Message
-            </button>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <img src="logo.png" alt="HiCloud">
-        </div>
-        <p class="footer-desc">Powering the future of digital advertising. HiCloud connects publishers, advertisers, and content creators through our unified ecosystem.</p>
-        <div class="footer-social">
-          <a href="#" class="social-link">in</a>
-        </div>
-      </div>
-      <div class="footer-links">
-        <div class="footer-column">
-          <h4>Services</h4>
-          <a href="#about">Ad Exchange</a>
-          <a href="#about">Affiliate Network</a>
-          <a href="#about">Content Provider</a>
-        </div>
-        <div class="footer-column">
-          <h4>Company</h4>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2024 HiCloud. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">OUR SOLUTIONS</div>
+                <h2 class="section-title">Three Powerful Platforms</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 5.58172 7.58172 1 12 1C16.4183 1 21 5.58172 21 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="10" r="3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Real-time Bidding</h3>
+                    <p class="service-desc">Real-time bidding platform connecting premium publishers worldwide. Optimize ad spend and maximize ROI with AI-driven algorithms.</p>
+                    <div class="service-tags">
+                        <span class="tag">RTB</span>
+                        <span class="tag">AI Optimization</span>
+                        <span class="tag">Global Reach</span>
+                    </div>
+                </div>
 
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 4H18C19.1046 4 20 4.89543 20 6V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V6C4 4.89543 4.89543 4 6 4H8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 2H9C8.44772 2 8 2.44772 8 3V5C8 5.55228 8.44772 6 9 6H15C15.5523 6 16 5.55228 16 5V3C16 2.44772 15.5523 2 15 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Performance Marketing</h3>
+                    <p class="service-desc">Performance-based marketing network. Connect with thousands of affiliates and track every conversion with precision.</p>
+                    <div class="service-tags">
+                        <span class="tag">Tracking</span>
+                        <span class="tag">Affiliates</span>
+                        <span class="tag">Conversions</span>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8.5" cy="8.5" r="1.5" fill="white"/>
+                            <path d="M21 15L16 10L5 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Native Advertising</h3>
+                    <p class="service-desc">Native advertising and sponsored content solutions. Deliver seamless ad experiences that engage and convert your audience.</p>
+                    <div class="service-tags">
+                        <span class="tag">Content</span>
+                        <span class="tag">Engagement</span>
+                        <span class="tag">Branding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">$2B+</div>
+                    <div class="stat-label">Ad Spend</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Publishers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">180+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">47%</div>
+                    <div class="stat-label">Revenue Lift</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ready to Scale Your Business?</h2>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="john@company.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-input" placeholder="Your Company">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-input" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <img src="logo.png" alt="HiCloud Logo" class="footer-logo">
+                    <p class="footer-desc">
+                        HiCloud is a leading advertising technology and SaaS platform
+                        empowering businesses with data-driven marketing solutions.
+                    </p>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 9H2V21H6V9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 5C5.10457 5 6 4.10457 6 3C6 1.89543 5.10457 1 4 1C2.89543 1 2 1.89543 2 3C2 4.10457 2.89543 5 4 5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#about">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 HiCloud. All rights reserved.
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
