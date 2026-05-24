@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AdVerse — Digital Advertising Ecosystem</title>
-  <meta name="description" content="AdVerse provides premium ad exchange, affiliate network, and content monetization solutions for global publishers and advertisers.">
+  <meta name="description" content="AdVerse provides premium ad exchange, affiliate network, and content monetization solutions.">
   <!-- CSS -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/hero.css">
@@ -19,7 +19,12 @@
   <!-- Header -->
   <header class="header">
     <div class="container navbar">
-      <a href="#" class="logo">AdVerse</a>
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+        AdVerse
+      </a>
       <nav class="nav-menu">
         <a href="#about">About</a>
         <a href="#adexchange">Ad Exchange</a>
@@ -30,138 +35,337 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Banner -->
   <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-bg-gradient"></div>
+    
     <div class="container">
       <div class="hero-content">
-        <span class="hero-badge">✦ Trusted by 500+ Global Partners</span>
-        <h1 class="hero-title">Powering the Future of <span>Digital Advertising</span></h1>
+        <div class="hero-badge-wrapper">
+          <svg class="badge-star" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+          <span class="hero-badge">Trusted by 500+ Global Partners</span>
+        </div>
+        <h1 class="hero-title">
+          Powering the Future of
+          <span class="gradient-text">Digital Advertising</span>
+        </h1>
         <p class="hero-subtitle">AdVerse connects publishers, advertisers, and content creators through our unified ecosystem. Maximize your revenue with advanced ad exchange, performance affiliate networks, and premium content solutions.</p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn-primary">Get Started</a>
-          <a href="#about" class="btn-outline">Learn More</a>
+          <a href="#contact" class="btn-primary btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            Get Started
+          </a>
+          <a href="#about" class="btn-outline btn-icon">
+            Learn More
+          </a>
         </div>
-        <div class="hero-trust">
-          <span>Platform Built for Scale</span>
-          <div class="trust-logos">
-            <span style="color:#0EA5E9;font-weight:700;font-size:24px;">AdVerse</span>
+        <div class="hero-stats-inline">
+          <div class="stat-inline">
+            <span class="stat-value">$12M+</span>
+            <span class="stat-label">Monthly Revenue</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-inline">
+            <span class="stat-value">2B+</span>
+            <span class="stat-label">Impressions</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-inline">
+            <span class="stat-value">99.9%</span>
+            <span class="stat-label">Uptime</span>
           </div>
         </div>
       </div>
+      
       <div class="hero-visual">
-        <div class="ai-core">⚡</div>
-        <div class="float-card revenue-card">
-          <h4>$12M+</h4>
-          <p>Monthly Revenue</p>
-        </div>
-        <div class="float-card growth-card">
-          <h4>2B+</h4>
-          <p>Monthly Impressions</p>
-        </div>
-        <div class="float-card traffic-card">
-          <h4>47%</h4>
-          <p>Revenue Uplift</p>
-        </div>
-        <div class="hero-glow glow-1"></div>
-        <div class="hero-glow glow-2"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Metrics -->
-  <section class="metrics-section" id="about">
-    <div class="container">
-      <h2 class="section-title">About AdVerse</h2>
-      <p class="section-subtitle">Founded in 2020, we have rapidly become a leading force in the digital advertising industry. Our platform combines cutting-edge technology with deep industry expertise.</p>
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-number" style="color: var(--primary);">2020</div>
-          <div class="metric-label">Founded</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-number" style="color: var(--primary);">180+</div>
-          <div class="metric-label">Countries Served</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-number" style="color: var(--primary);">99.9%</div>
-          <div class="metric-label">Platform Uptime</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-number" style="color: var(--primary);"><50ms</div>
-          <div class="metric-label">Avg Response Time</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ad Exchange -->
-  <section class="content-section" id="adexchange">
-    <div class="container">
-      <div class="content-wrapper">
-        <div class="content-visual">
-          <div class="platform-preview">
-            <div class="platform-header">
-              <div class="platform-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <span>Ad Exchange Dashboard</span>
+        <!-- Main Dashboard Preview -->
+        <div class="dashboard-preview">
+          <div class="dashboard-header">
+            <div class="dashboard-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
             </div>
-            <div class="platform-body">
-              <div class="realtime-chart">
-                <svg viewBox="0 0 200 60" class="chart-svg">
-                  <defs>
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:0.3" />
-                      <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:0" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,50 Q20,45 40,40 T80,35 T120,25 T160,30 T200,20 L200,60 L0,60 Z" fill="url(#grad1)" />
-                  <path d="M0,50 Q20,45 40,40 T80,35 T120,25 T160,30 T200,20" stroke="#0EA5E9" stroke-width="2" fill="none" />
+            <span class="dashboard-title">AdVerse Dashboard</span>
+          </div>
+          <div class="dashboard-body">
+            <!-- Main Chart -->
+            <div class="main-chart">
+              <svg viewBox="0 0 280 100" class="chart-svg">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:0.4" />
+                    <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:0" />
+                  </linearGradient>
+                </defs>
+                <path d="M0,80 Q35,75 70,65 T140,50 T210,35 T280,25 L280,100 L0,100 Z" fill="url(#chartGrad)" />
+                <path d="M0,80 Q35,75 70,65 T140,50 T210,35 T280,25" stroke="#0EA5E9" stroke-width="3" fill="none" stroke-linecap="round" />
+                <circle cx="70" cy="65" r="4" fill="#0EA5E9"/>
+                <circle cx="140" cy="50" r="4" fill="#0EA5E9"/>
+                <circle cx="210" cy="35" r="4" fill="#0EA5E9"/>
+                <circle cx="280" cy="25" r="4" fill="#0EA5E9"/>
+              </svg>
+            </div>
+            <!-- Stats Row -->
+            <div class="dashboard-stats">
+              <div class="d-stat">
+                <div class="d-stat-icon revenue-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                  </svg>
+                </div>
+                <div class="d-stat-info">
+                  <span class="d-value">$89,432</span>
+                  <span class="d-label">Revenue Today</span>
+                </div>
+                <span class="d-trend up">+12.5%</span>
+              </div>
+              <div class="d-stat">
+                <div class="d-stat-icon impression-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  </svg>
+                </div>
+                <div class="d-stat-info">
+                  <span class="d-value">512M</span>
+                  <span class="d-label">Impressions</span>
+                </div>
+                <span class="d-trend up">+8.3%</span>
+              </div>
+              <div class="d-stat">
+                <div class="d-stat-icon fillrate-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </svg>
+                </div>
+                <div class="d-stat-info">
+                  <span class="d-value">98.5%</span>
+                  <span class="d-label">Fill Rate</span>
+                </div>
+                <span class="d-trend up">+2.1%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="float-card float-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <div>
+            <h5>Fast Delivery</h5>
+            <p><50ms latency</p>
+          </div>
+        </div>
+        <div class="float-card float-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <div>
+            <h5>Verified</h5>
+            <p>Anti-fraud system</p>
+          </div>
+        </div>
+        <div class="float-card float-3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+          <div>
+            <h5>Global</h5>
+            <p>180+ countries</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Wave Bottom -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 120" fill="none">
+        <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Services Icons -->
+  <section class="services-icons" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">OUR SOLUTIONS</span>
+        <h2 class="section-title">Three Powerful Platforms</h2>
+        <p class="section-subtitle">One unified ecosystem for all your digital advertising needs</p>
+      </div>
+      
+      <div class="services-cards">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <div class="icon-bg bg-1"></div>
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
+          </div>
+          <h3>Ad Exchange</h3>
+          <p>Real-time bidding platform connecting premium publishers with top-tier advertisers worldwide.</p>
+          <div class="service-features">
+            <span class="feature-tag">Header Bidding</span>
+            <span class="feature-tag">RTB</span>
+            <span class="feature-tag">Private MP</span>
+          </div>
+          <a href="#adexchange" class="service-link">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <div class="icon-bg bg-2"></div>
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3>Affiliate Network</h3>
+          <p>Performance-based marketing network. Connect with thousands of affiliates and only pay for results.</p>
+          <div class="service-features">
+            <span class="feature-tag">CPA</span>
+            <span class="feature-tag">CPI</span>
+            <span class="feature-tag">CPS</span>
+          </div>
+          <a href="#affiliate" class="service-link">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <div class="icon-bg bg-3"></div>
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+            </svg>
+          </div>
+          <h3>Content Provider</h3>
+          <p>Native advertising and sponsored content solutions that blend seamlessly with user experience.</p>
+          <div class="service-features">
+            <span class="feature-tag">Native</span>
+            <span class="feature-tag">Sponsored</span>
+            <span class="feature-tag">AI Recommend</span>
+          </div>
+          <a href="#content" class="service-link">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Exchange Detail -->
+  <section class="detail-section" id="adexchange">
+    <div class="container">
+      <div class="detail-grid">
+        <div class="detail-content">
+          <span class="detail-tag">AD EXCHANGE</span>
+          <h2 class="detail-title">Maximize Your Advertising Revenue</h2>
+          <p class="detail-desc">Our intelligent ad exchange platform uses advanced algorithms to optimize your yield in real-time. Connect to 50+ demand partners with a single integration.</p>
+          
+          <div class="detail-features">
+            <div class="detail-feature">
+              <div class="df-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                 </svg>
               </div>
-              <div class="metrics-row">
-                <div class="mini-metric">
-                  <span class="value">$89K</span>
-                  <span class="label">Today</span>
-                </div>
-                <div class="mini-metric">
-                  <span class="value">98.5%</span>
-                  <span class="label">Fill Rate</span>
-                </div>
-                <div class="mini-metric">
-                  <span class="value">500M+</span>
-                  <span class="label">Impressions</span>
-                </div>
+              <div>
+                <h4>Header Bidding</h4>
+                <p>Advanced wrapper technology for maximum competition</p>
+              </div>
+            </div>
+            <div class="detail-feature">
+              <div class="df-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Real-Time Bidding</h4>
+                <p>Sub-50ms latency auction technology</p>
+              </div>
+            </div>
+            <div class="detail-feature">
+              <div class="df-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Private Marketplace</h4>
+                <p>Premium deals with top advertisers</p>
               </div>
             </div>
           </div>
-          <div class="floating-badge badge-1">
-            <span>Header Bidding</span>
-          </div>
-          <div class="floating-badge badge-2">
-            <span>RTB Enabled</span>
-          </div>
         </div>
-        <div class="content-info">
-          <span class="content-tag">AD EXCHANGE</span>
-          <h3 class="content-title">Real-Time Bidding Platform</h3>
-          <p class="content-desc">Connect premium publishers with top-tier advertisers through our intelligent ad exchange platform. Maximize eCPM with advanced yield optimization and header bidding support.</p>
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <span>Programmatic Direct Deals</span>
+        
+        <div class="detail-visual">
+          <div class="exchange-preview">
+            <div class="preview-header">
+              <span>Real-Time Auction</span>
+              <span class="live-badge">LIVE</span>
             </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <span>Private Marketplace</span>
+            <div class="exchange-grid">
+              <div class="exchange-item">
+                <div class="bidder-avatar b1"></div>
+                <div class="bidder-info">
+                  <span class="bidder-name">DSP Alpha</span>
+                  <span class="bidder-price">$2.45</span>
+                </div>
+                <span class="winner-tag">WINNER</span>
+              </div>
+              <div class="exchange-item">
+                <div class="bidder-avatar b2"></div>
+                <div class="bidder-info">
+                  <span class="bidder-name">DSP Beta</span>
+                  <span class="bidder-price">$2.12</span>
+                </div>
+              </div>
+              <div class="exchange-item">
+                <div class="bidder-avatar b3"></div>
+                <div class="bidder-info">
+                  <span class="bidder-name">DSP Gamma</span>
+                  <span class="bidder-price">$1.98</span>
+                </div>
+              </div>
+              <div class="exchange-item">
+                <div class="bidder-avatar b4"></div>
+                <div class="bidder-info">
+                  <span class="bidder-name">DSP Delta</span>
+                  <span class="bidder-price">$1.87</span>
+                </div>
+              </div>
             </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <span>50+ Demand Partners</span>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <span>Smart Yield Optimization</span>
+            <div class="auction-timer">
+              <div class="timer-progress" style="width: 75%"></div>
+              <span>Auction completed in 23ms</span>
             </div>
           </div>
         </div>
@@ -170,32 +374,73 @@
   </section>
 
   <!-- Affiliate Network -->
-  <section class="platform-section" id="affiliate">
+  <section class="detail-section dark-section" id="affiliate">
     <div class="container">
-      <div class="platform-content">
-        <span class="platform-tag">AFFILIATE NETWORK</span>
-        <h3 class="platform-title">Performance-Based Marketing</h3>
-        <p class="platform-desc">Connect with thousands of affiliates and only pay when you get results. Our network delivers high-quality traffic across all verticals with real-time tracking and analytics.</p>
-        <div class="platform-features">
-          <div class="platform-feature">
-            <div class="pf-icon">📊</div>
-            <h4>CPA & CPI Models</h4>
-            <p>Flexible pricing models to match your campaign objectives</p>
+      <div class="detail-grid reverse">
+        <div class="detail-content">
+          <span class="detail-tag light-tag">AFFILIATE NETWORK</span>
+          <h2 class="detail-title white-title">Performance Marketing at Scale</h2>
+          <p class="detail-desc white-desc">Connect with thousands of verified affiliates across all verticals. Our intelligent matching algorithm pairs your offers with the perfect publishers for maximum ROI.</p>
+          
+          <div class="detail-features">
+            <div class="detail-feature light-feature">
+              <div class="df-icon light-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div>
+                <h4>10,000+ Affiliates</h4>
+                <p>Vetted publisher network across all verticals</p>
+              </div>
+            </div>
+            <div class="detail-feature light-feature">
+              <div class="df-icon light-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Flexible Models</h4>
+                <p>CPA, CPI, CPS, CPL - choose what fits you</p>
+              </div>
+            </div>
+            <div class="detail-feature light-feature">
+              <div class="df-icon light-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Anti-Fraud System</h4>
+                <p>Multi-layer fraud detection and prevention</p>
+              </div>
+            </div>
           </div>
-          <div class="platform-feature">
-            <div class="pf-icon">📍</div>
-            <h4>Real-Time Tracking</h4>
-            <p>Advanced attribution and conversion tracking technology</p>
-          </div>
-          <div class="platform-feature">
-            <div class="pf-icon">🌍</div>
-            <h4>Global Publisher Pool</h4>
-            <p>Access premium publishers across 180+ countries</p>
-          </div>
-          <div class="platform-feature">
-            <div class="pf-icon">💰</div>
-            <h4>Anti-Fraud System</h4>
-            <p>Multi-layer fraud detection ensures quality traffic</p>
+        </div>
+        
+        <div class="detail-visual">
+          <div class="network-visual">
+            <div class="center-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div class="network-node n1"><span>Publisher</span></div>
+            <div class="network-node n2"><span>Advertiser</span></div>
+            <div class="network-node n3"><span>Affiliate</span></div>
+            <div class="network-node n4"><span>Agency</span></div>
+            <div class="network-node n5"><span>Brand</span></div>
+            <div class="network-node n6"><span>Media</span></div>
+            <div class="connection-line c1"></div>
+            <div class="connection-line c2"></div>
+            <div class="connection-line c3"></div>
+            <div class="connection-line c4"></div>
+            <div class="connection-line c5"></div>
+            <div class="connection-line c6"></div>
           </div>
         </div>
       </div>
@@ -203,57 +448,103 @@
   </section>
 
   <!-- Content Provider -->
-  <section class="content-section" id="content">
+  <section class="detail-section" id="content">
     <div class="container">
-      <div class="content-wrapper reverse">
-        <div class="content-info">
-          <span class="content-tag">CONTENT PROVIDER</span>
-          <h3 class="content-title">Premium Content Monetization</h3>
-          <p class="content-desc">Native advertising, sponsored content, and smart recommendation engines that blend seamlessly with your user experience while maximizing revenue.</p>
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <span>Native Advertising Solutions</span>
+      <div class="detail-grid">
+        <div class="detail-content">
+          <span class="detail-tag">CONTENT PROVIDER</span>
+          <h2 class="detail-title">Native Advertising That Converts</h2>
+          <p class="detail-desc">Our content platform delivers seamless native experiences that users actually engage with. AI-powered recommendations ensure every impression counts.</p>
+          
+          <div class="detail-features">
+            <div class="detail-feature">
+              <div class="df-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="3" y1="9" x2="21" y2="9"/>
+                  <line x1="9" y1="21" x2="9" y2="9"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Native Ad Units</h4>
+                <p>Blend seamlessly with your content</p>
+              </div>
             </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <span>Sponsored Content Platform</span>
+            <div class="detail-feature">
+              <div class="df-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Sponsored Content</h4>
+                <p>High-quality branded content solutions</p>
+              </div>
             </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <span>AI Recommendation Engine</span>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <span>Contextual Targeting</span>
+            <div class="detail-feature">
+              <div class="df-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>AI Recommendations</h4>
+                <p>Personalized content discovery engine</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="content-visual">
-          <div class="platform-preview content-preview">
-            <div class="platform-header">
-              <div class="platform-dots">
-                <span></span><span></span><span></span>
+        
+        <div class="detail-visual">
+          <div class="content-preview">
+            <div class="content-card">
+              <div class="content-image">
+                <svg viewBox="0 0 80 60" fill="none">
+                  <rect width="80" height="60" rx="8" fill="url(#grad1)"/>
+                  <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#0EA5E9"/>
+                      <stop offset="100%" style="stop-color:#06B6D4"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M40 20L50 35H30L40 20Z" fill="white" opacity="0.9"/>
+                  <circle cx="40" cy="27" r="10" stroke="white" stroke-width="2" fill="none" opacity="0.5"/>
+                </svg>
               </div>
-              <span>Content Analytics</span>
+              <span class="sponsored-tag">Sponsored</span>
+              <h4>The Future of Digital Advertising</h4>
+              <p>Discover how AI is transforming the advertising landscape...</p>
+              <div class="content-meta">
+                <span class="read-time">5 min read</span>
+                <span class="cta-text">Learn More →</span>
+              </div>
             </div>
-            <div class="platform-body">
-              <div class="content-cards">
-                <div class="mini-content-card">
-                  <div class="mcc-image" style="background: linear-gradient(135deg, #0EA5E9, #06B6D4);"></div>
-                  <div class="mcc-title">Native Ad Performance</div>
-                  <div class="mcc-meta">CTR: 2.8%</div>
-                </div>
-                <div class="mini-content-card">
-                  <div class="mcc-image" style="background: linear-gradient(135deg, #06B6D4, #22D3EE);"></div>
-                  <div class="mcc-title">Sponsored Content</div>
-                  <div class="mcc-meta">Engagement: 4.2%</div>
-                </div>
-                <div class="mini-content-card">
-                  <div class="mcc-image" style="background: linear-gradient(135deg, #22D3EE, #0EA5E9);"></div>
-                  <div class="mcc-title">Recommendations</div>
-                  <div class="mcc-meta">CTR: 3.5%</div>
-                </div>
+            
+            <div class="content-card card-2">
+              <div class="content-image">
+                <svg viewBox="0 0 80 60" fill="none">
+                  <rect width="80" height="60" rx="8" fill="url(#grad2)"/>
+                  <defs>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#06B6D4"/>
+                      <stop offset="100%" style="stop-color:#22D3EE"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="25" y="18" width="30" height="24" rx="3" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+                  <circle cx="40" cy="30" r="6" fill="white" opacity="0.5"/>
+                </svg>
+              </div>
+              <span class="sponsored-tag">Recommended</span>
+              <h4>Maximize Publisher Revenue</h4>
+              <p>Proven strategies to increase your ad yield...</p>
+              <div class="content-meta">
+                <span class="read-time">3 min read</span>
+                <span class="cta-text">Read More →</span>
               </div>
             </div>
           </div>
@@ -262,18 +553,75 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="cta-section" id="contact">
+  <!-- Stats Banner -->
+  <section class="stats-banner">
     <div class="container">
-      <div class="cta-wrapper">
-        <h2 class="cta-title">Get In Touch</h2>
-        <p class="cta-desc">Let's discuss how AdVerse can power your advertising growth</p>
+      <div class="stats-grid">
+        <div class="stat-big">
+          <div class="stat-big-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <div class="stat-big-number">$2B+</div>
+          <div class="stat-big-label">Ad Spend Managed</div>
+        </div>
+        <div class="stat-big">
+          <div class="stat-big-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <div class="stat-big-number">10,000+</div>
+          <div class="stat-big-label">Publisher Partners</div>
+        </div>
+        <div class="stat-big">
+          <div class="stat-big-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
+          <div class="stat-big-number">180+</div>
+          <div class="stat-big-label">Countries Reached</div>
+        </div>
+        <div class="stat-big">
+          <div class="stat-big-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="stat-big-number">47%</div>
+          <div class="stat-big-label">Avg Revenue Lift</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-header">
+          <span class="contact-tag">GET IN TOUCH</span>
+          <h2 class="contact-title">Ready to Scale Your Business?</h2>
+          <p class="contact-subtitle">Let's discuss how AdVerse can power your advertising growth. Our team will get back to you within 24 hours.</p>
+        </div>
         
         <div class="contact-form-wrapper">
           <form class="contact-form">
             <div class="form-row">
               <div class="form-group">
-                <label>First Name</label>
+                <label>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                  First Name
+                </label>
                 <input type="text" placeholder="John">
               </div>
               <div class="form-group">
@@ -282,7 +630,13 @@
               </div>
             </div>
             <div class="form-group">
-              <label>Email</label>
+              <label>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Email
+              </label>
               <input type="email" placeholder="john@company.com">
             </div>
             <div class="form-group">
@@ -302,7 +656,13 @@
               <label>Message</label>
               <textarea rows="4" placeholder="Tell us about your business..."></textarea>
             </div>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="submit" class="submit-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+              Send Message
+            </button>
           </form>
         </div>
       </div>
@@ -313,11 +673,16 @@
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-brand">
-        <div class="footer-logo">AdVerse</div>
+        <div class="footer-logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          AdVerse
+        </div>
         <p class="footer-desc">Powering the future of digital advertising. Connecting publishers, advertisers, and content creators through our unified ecosystem.</p>
         <div class="footer-social">
           <a href="#" class="social-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
           </a>
